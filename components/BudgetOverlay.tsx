@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { X, Settings2, TrendingUp, BarChart3, Calculator, Plus, ArrowRight } from 'lucide-react';
+import { X, Sliders, TrendingUp, BarChart3, Calculator } from 'lucide-react';
 
 interface BudgetOverlayProps {
   isOpen: boolean;
@@ -11,113 +11,97 @@ const BudgetOverlay: React.FC<BudgetOverlayProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-      {/* Backdrop with High-Fidelity Blur */}
-      <div 
-        className="absolute inset-0 bg-black/40 backdrop-blur-md transition-opacity animate-in fade-in duration-500"
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 z-[65] bg-black/20 backdrop-blur-[2px] sm:bg-transparent sm:backdrop-blur-0"
         onClick={onClose}
       />
-      
-      {/* Modal Container */}
-      <div className="relative w-full max-w-[500px] bg-white rounded-[40px] overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] border border-white/20 animate-in zoom-in-95 slide-in-from-bottom-8 duration-500">
-        
-        {/* Header - Premium Image & Gradient (Reduced Height) */}
-        <div className="relative h-[180px] group overflow-hidden">
-          <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" 
-            alt="Modern Architecture" 
-            className="absolute inset-0 w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#105B48] via-[#105B48]/70 to-transparent opacity-95"></div>
-          
-          <button 
-            onClick={onClose}
-            className="absolute top-6 right-6 p-2.5 bg-white/10 hover:bg-white/30 backdrop-blur-md rounded-full text-white transition-all hover:rotate-90 z-10"
-          >
-            <X size={18} />
-          </button>
-          
-          <div className="absolute bottom-6 left-8 right-8">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="px-2.5 py-1 bg-white/20 backdrop-blur-md border border-white/20 rounded-lg text-[9px] font-bold text-white tracking-[0.2em] uppercase">
-                Enterprise Tools
-              </div>
-            </div>
-            <h2 className="text-2xl font-bold text-white tracking-tight leading-tight">
-              Financial Planning
-            </h2>
+
+      {/* Popover/Modal Container */}
+      <div className="fixed inset-x-4 top-[15vh] sm:absolute sm:inset-auto sm:top-[calc(100%+12px)] sm:left-1/2 sm:-translate-x-1/2 w-auto sm:w-[400px] bg-white rounded-[24px] sm:rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-gray-100 overflow-hidden z-[70] animate-dropdown origin-top">
+
+        {/* Header - Navy Blue with Icon */}
+        <div className="bg-[#0A1F33] h-[120px] sm:h-[160px] flex items-center justify-center relative">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl sm:rounded-3xl border-2 border-white/20 flex items-center justify-center text-white">
+            <Calculator className="w-8 h-8 sm:w-10 sm:h-10" strokeWidth={1.5} />
           </div>
+          {/* Subtle Window Controls Mockup */}
+          <div className="absolute top-4 left-6 hidden sm:flex gap-1.5">
+            <div className="w-2 h-2 rounded-full bg-white/20" />
+            <div className="w-2 h-2 rounded-full bg-white/20" />
+            <div className="w-2 h-2 rounded-full bg-white/20" />
+          </div>
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-white/60 hover:text-white sm:hidden"
+          >
+            <X size={20} />
+          </button>
         </div>
 
         {/* Content Section */}
-        <div className="p-8 sm:p-10 space-y-8 bg-white">
-          
-          <div className="space-y-6">
+        <div className="p-6 sm:p-8 space-y-6 sm:space-y-8">
+
+          <div className="space-y-6 sm:space-y-8">
             {/* Feature 1 */}
-            <div className="flex gap-5 group cursor-default">
-              <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#105B48]/5 flex items-center justify-center text-[#105B48] group-hover:bg-[#105B48] group-hover:text-white transition-all duration-300 shadow-inner">
-                <Settings2 size={22} strokeWidth={2} />
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 pt-1">
+                <Sliders size={18} className="text-gray-400 sm:w-5 sm:h-5" strokeWidth={1.5} />
               </div>
-              <div className="pt-1">
-                <h3 className="text-base font-bold text-gray-900 leading-tight mb-1">
-                  Categorized Annual Budgets
+              <div className="space-y-0.5 sm:space-y-1">
+                <h3 className="text-[14px] sm:text-[15px] font-bold text-gray-900 leading-snug">
+                  Set up annual budgets by account category
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Smart allocation across property management and operational lines.
+                <p className="text-[12px] sm:text-[13px] text-gray-500 leading-relaxed">
+                  Allocate funds across income and expense lines with full visibility.
                 </p>
               </div>
             </div>
 
             {/* Feature 2 */}
-            <div className="flex gap-5 group cursor-default">
-              <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#105B48]/5 flex items-center justify-center text-[#105B48] group-hover:bg-[#105B48] group-hover:text-white transition-all duration-300 shadow-inner">
-                <TrendingUp size={22} strokeWidth={2} />
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 pt-1">
+                <TrendingUp size={18} className="text-gray-400 sm:w-5 sm:h-5" strokeWidth={1.5} />
               </div>
-              <div className="pt-1">
-                <h3 className="text-base font-bold text-gray-900 leading-tight mb-1">
-                  Real-time Variance Tracking
+              <div className="space-y-0.5 sm:space-y-1">
+                <h3 className="text-[14px] sm:text-[15px] font-bold text-gray-900 leading-snug">
+                  Track actuals vs budget in real time
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Instant visual indicators for actuals versus planned performance.
+                <p className="text-[12px] sm:text-[13px] text-gray-500 leading-relaxed">
+                  See how your community is performing against plan, month by month.
                 </p>
               </div>
             </div>
 
             {/* Feature 3 */}
-            <div className="flex gap-5 group cursor-default">
-              <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-[#105B48]/5 flex items-center justify-center text-[#105B48] group-hover:bg-[#105B48] group-hover:text-white transition-all duration-300 shadow-inner">
-                <BarChart3 size={22} strokeWidth={2} />
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 pt-1">
+                <BarChart3 size={18} className="text-gray-400 sm:w-5 sm:h-5" strokeWidth={1.5} />
               </div>
-              <div className="pt-1">
-                <h3 className="text-base font-bold text-gray-900 leading-tight mb-1">
-                  Dynamic Forecasting
+              <div className="space-y-0.5 sm:space-y-1">
+                <h3 className="text-[14px] sm:text-[15px] font-bold text-gray-900 leading-snug">
+                  Adjust figures and forecast with ease
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Project future growth with automated historical data roll-forwards.
+                <p className="text-[12px] sm:text-[13px] text-gray-500 leading-relaxed">
+                  Edit amounts, apply percentage changes, or roll forward last year's data.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* CTA Section */}
-          <div className="pt-4 space-y-4">
-            <button 
-              className="w-full py-5 bg-[#105B48] hover:bg-[#0c4436] text-white rounded-2xl font-bold text-lg shadow-[0_10px_30px_-10px_rgba(16,91,72,0.5)] hover:shadow-[0_20px_40px_-10px_rgba(16,91,72,0.6)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 group active:scale-[0.98]"
+          {/* CTA Button */}
+          <div className="pt-2">
+            <button
+              className="w-full py-3.5 sm:py-4 bg-[#1A1A1A] hover:bg-black text-white rounded-full font-bold text-[14px] sm:text-[15px] transition-all active:scale-[0.98] shadow-lg"
               onClick={onClose}
             >
-              <Plus size={20} />
-              <span>Initialize New Budget</span>
-            </button>
-            <button 
-              className="w-full py-4 text-gray-400 hover:text-gray-900 text-sm font-bold transition-all flex items-center justify-center gap-2 group"
-              onClick={onClose}
-            >
-              Learn about Financial Modules <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              Create Budget
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -24,10 +24,10 @@ export const SALES_CHART_DATA = [
 ];
 
 export const FINANCIAL_STATS = [
-  { label: 'Total Inflow', value: '₦120,000,000.00', change: '+2.5%', isPositive: true, color: 'text-blue-600' },
-  { label: 'MRR', value: '₦50,000,000.00', change: '+2.5%', isPositive: true, color: 'text-green-600' },
-  { label: 'Commission Revenue', value: '₦200,000,000.00', change: '+0.5%', isPositive: true, color: 'text-emerald-600' },
-  { label: 'GMV', value: '₦100,000,000.00', change: '-0.5%', isPositive: false, color: 'text-red-600' },
+  { label: 'Total Inflow', value: '₦120,000,000.00', change: '2.5%', isPositive: true, color: 'text-[#6366F1]' },
+  { label: 'MRR', value: '₦50,000,000.00', change: '2.5%', isPositive: true, color: 'text-[#22C55E]' },
+  { label: 'Commission Revenue', value: '₦200,000,000.00', change: '0.5%', isPositive: true, color: 'text-[#10B981]' },
+  { label: 'GMV', value: '₦100,000,000.00', change: '0.5%', isPositive: false, color: 'text-[#EF4444]' },
 ];
 
 export const FEATURED_LISTINGS = [
