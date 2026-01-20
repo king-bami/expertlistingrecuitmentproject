@@ -2,10 +2,10 @@
 
 A high-fidelity, pixel-perfect admin dashboard built for the Expert Listing Frontend Engineer assessment. This project transforms a Figma design into a fully interactive, production-ready React application with advanced animations and power-user features.
 
-## 🚀 Live Demo
-**[Insert Your Vercel/Netlify URL Here]**
+##  Live Demo
+**[https://expertlistingrecuitmentproject.vercel.app/](https://expertlistingrecuitmentproject.vercel.app/)**
 
-## ✨ Key Features
+##  Key Features
 
 - **Pixel-Perfect Figma Conversion**: Meticulous attention to detail in typography, spacing, and layout density.
 - **Premium Animation Suite (GSAP)**:
@@ -20,7 +20,7 @@ A high-fidelity, pixel-perfect admin dashboard built for the Expert Listing Fron
 - **Glassmorphism UI**: Dynamic sticky header with backdrop-blur and scale-on-scroll effects.
 - **Defensive UI Engineering**: Dynamic font scaling for numerical data to prevent layout breaks.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Core**: React 19, TypeScript
 - **Styling**: Tailwind CSS
@@ -29,7 +29,7 @@ A high-fidelity, pixel-perfect admin dashboard built for the Expert Listing Fron
 - **Charts**: Recharts
 - **Build Tool**: Vite
 
-## 📦 Local Setup
+## Local Setup
 
 1. **Clone the repository**:
    ```bash
@@ -51,7 +51,7 @@ A high-fidelity, pixel-perfect admin dashboard built for the Expert Listing Fron
    npm run build
    ```
 
-## 📝 Design Notes
+## Design Notes
 
 - **Typography**: Optimized for readability using "Space Grotesk" from Google Fonts.
 - **Performance**: GSAP used for heavy animations to ensure 60FPS fluid motion.
